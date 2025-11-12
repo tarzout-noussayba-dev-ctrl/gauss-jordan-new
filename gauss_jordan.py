@@ -29,3 +29,23 @@ def gauss_jordan(A, B, N):
             B[i] -= factor * B[k]
 
     return B
+def main():
+    N = int(input(f"Enter the number of equations (N <= {MAX}): "))
+    if N > MAX or N <= 0:
+        print(f"Error: N must be between 1 and {MAX}")
+        return
+
+    A = []
+    print(f"Enter the coefficients of matrix A ({N}x{N}):")
+    for i in range(N):
+        row = []
+        for j in range(N):
+            value = float(input(f"A[{i+1}][{j+1}] = "))
+            row.append(value)
+        A.append(row)
+
+    B = []
+    print(f"\nEnter the constants vector B ({N} values):")
+    for i in range(N):
+        value = float(input(f"B[{i+1}] = "))
+        B.append(value)
