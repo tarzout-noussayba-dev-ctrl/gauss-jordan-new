@@ -10,3 +10,7 @@ def gauss_jordan(A, B, N):
                     A[k], A[i] = A[i], A[k]
                     B[k], B[i] = B[i], B[k]
                     break
+        # Check for zero pivot
+        if abs(A[k][k]) < 1e-9:
+            print("Error: Singular matrix (zero pivot detected).")
+            return None
