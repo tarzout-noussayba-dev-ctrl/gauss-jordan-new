@@ -49,3 +49,18 @@ def main():
     for i in range(N):
         value = float(input(f"B[{i+1}] = "))
         B.append(value)
+    result = gauss_jordan(A, B, N)
+
+    print("\nThe transformed matrix (A):")
+    for i in range(N):
+        for j in range(N):
+            print(f"{A[i][j]:.4f}", end="\t")
+        print()
+
+    if result is not None:
+        print("\nThe solution (X):")
+        for i in range(N):
+            print(f"x{i+1} = {result[i]:.6f}")
+
+if __name__ == "__main__":
+    main()
