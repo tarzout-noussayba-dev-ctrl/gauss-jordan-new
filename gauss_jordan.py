@@ -19,3 +19,13 @@ def gauss_jordan(A, B, N):
         for j in range(N):
             A[k][j] /= pivot
         B[k] /= pivot
+        # Elimination loop
+        for i in range(N):
+            if i == k:
+                continue
+            factor = A[i][k]
+            for j in range(N):
+                A[i][j] -= factor * A[k][j]
+            B[i] -= factor * B[k]
+
+    return B
