@@ -2,4 +2,11 @@
 MAX = 10
 def gauss_jordan(A, B, N):
     """Solve a system of linear equations A * X = B by Gauss-Jordan."""
-    pass
+    for k in range(N):
+        # Partial Pivoting
+        if abs(A[k][k]) < 1e-9:
+            for i in range(k + 1, N):
+                if abs(A[i][k]) > abs(A[k][k]):
+                    A[k], A[i] = A[i], A[k]
+                    B[k], B[i] = B[i], B[k]
+                    break
